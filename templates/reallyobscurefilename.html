@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Find your Dream Stock!</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="content">
+    <h1 style="text-align: center">Enter Stock Ticker (e.g. FB, GOOG, etc.)</h1>
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="company" id="company">
+            <input type="submit" value="Analyze">
+        </form>
+    </div>
+</div>
+
+<table>
+        <tr>
+            <th>{{ result }}</th>
+        </tr>
+    </table>
+
+{% endblock %}

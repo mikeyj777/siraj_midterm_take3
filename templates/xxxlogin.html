@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <form action="" method="post">
+        <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+
+          <div class="jumbotron">
+                <h1 class="display-3">The Product</h1>
+                <p class="lead">Purchase The Financial Analysis for only $199.</p>
+                <form action="{{ url_for('index') }}" method="POST">
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="{{ pub_key }}"
+                    data-amount="19900"
+                    data-name="Demo Site"
+                    data-description="Widget"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto">
+                  </script>
+                </form>
+              </div>
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
+</html>
